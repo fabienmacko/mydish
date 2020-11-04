@@ -1,0 +1,33 @@
+@import "../../../style/colors/colors.scss";
+
+#home {
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+  .food-category {
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s, width 0.8s;
+
+    &:hover {
+      transform: scale(1.1);
+      width: 50% !important;
+      .food-category__background {
+        filter: brightness(0.9);
+      }
+    }
+
+  
+    .food-category__background {
+      pointer-events: none;
+      transition: 0.2s ease-in-out;
+      filter: brightness(0.5);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+    }
+  }
+
+}

@@ -1,0 +1,17 @@
+@import "../../../style/colors/colors.scss";
+
+#header {
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background: linear-gradient(0deg, rgba(34,193,195,0) 0%,#d2772985 65%);
+  img {
+    height: 150px;
+    margin: 30px;
+  }
+}
