@@ -11,7 +11,7 @@ import './client.scss';
 
 const Client = () => {
   return (
-      <div id="client">
+      <div id="client" data-test='client'>
         <Header />
         <Switch>
 
