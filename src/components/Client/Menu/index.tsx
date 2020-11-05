@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql, from } from '@apollo/client';
 import './menu.scss';
 
-const Menu = ({ food, match }) => {
-  const { category } = useParams();
+const Menu = () => {
+  const { category } = useParams<{ category: string }>();
 
   const FOODS = gql`
   query {

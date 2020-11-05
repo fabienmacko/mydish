@@ -1,8 +1,8 @@
 import React from 'react';
-import Home from '../../containers/Home';
+import Home from './Home';
 import Product from './Product';
 import Header from './Header'; 
-import Menu from '../../containers/Menu';
+import Menu from './Menu';
 import {
   Switch,
   Route

@@ -10,8 +10,8 @@ import './app.scss';
 class App extends React.Component {
   componentDidMount() {
     // Fade out the loader when the app has been loaded
-    var loader = document.getElementById("loader");
-    loader.style.opacity = 0;
+    var loader: HTMLElement = document.getElementById("loader")!;
+    loader.style.opacity = '0';
     setTimeout(() => {
       loader.remove();
     }, 400);

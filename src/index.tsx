@@ -2,20 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
-import store from './store';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {ApolloProvider} from '@apollo/client';
 import client from './apolloProvider';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <ApolloProvider client={client}>
-                <App />
-            </ApolloProvider>
-        </Router>
-    </Provider>
+    <Router>
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
+    </Router>
     ,
     document.getElementById('root'));
 

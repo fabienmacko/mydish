@@ -3,7 +3,7 @@ import pizza1 from '../../../style/images/pizza1.png';
 import './product.scss';
 
 
-const Product = ({ match }) => {
+const Product = () => {
 
   return (
     <div id="product">
