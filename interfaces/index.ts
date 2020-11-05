@@ -3,6 +3,7 @@ export interface State {
 };
 
 export interface Food {
+  id: string,
   category: string,
   imagePath: string
 };

@@ -10,6 +10,7 @@ const Home = () => {
   const FOODS = gql`
   query {
     foods{
+      id
       category
       imagePath
       dishs{
@@ -28,14 +29,15 @@ console.log(data);
     <div id="home">
       {
         data && data.foods.map((foodItem: Food, index: number) => (
-          <div>
-            <Link to={`/menu/${foodItem.category.toLowerCase()}`}
-            className="food-category__background" style={{
+          <Link to={`/menu/${foodItem.category.toLowerCase()}`} key={foodItem.id} className="food-category" style={{
+            width: `calc(100%/${data.foods.length})`
+          }}>
+            <div className="food-category__background" style={{
               backgroundImage: `url("${foodItem.imagePath}")`,
               backgroundPosition: "center",
-              backgroundSize: "cover"
-            }}></Link>
-          </div>
+              backgroundSize: "cover",
+            }}></div>
+          </Link>
         ))
       }
     </div>
