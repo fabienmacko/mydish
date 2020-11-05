@@ -19,7 +19,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div id="app">
+      <div id="app" data-test='app'>
         <Switch>
           <Route path="/">
             <Client />
