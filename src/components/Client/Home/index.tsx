@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
-
+import Header from '../Header'; 
 import './home.scss';
 import {Food} from '../../../../interfaces';
 
@@ -22,10 +22,13 @@ const Home = () => {
   `;
 
   const { loading, error, data } = useQuery(FOODS);
-  if (loading) console.log('loading');;
-  if (error) console.log('error');;
-console.log(data);
+  if (loading) console.log('loading');
+  if (error) console.log('error');
+  if (data) console.log('DATA');
+
   return (
+    <>
+    <Header pageTitle="What do you want to eat?" />
     <div id="home">
       {
         data && data.foods.map((foodItem: Food, index: number) => (
@@ -41,6 +44,7 @@ console.log(data);
         ))
       }
     </div>
+    </>
   );
 }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import Home from './Home';
 import Product from './Product';
-import Header from './Header'; 
 import Menu from './Menu';
 import {
   Switch,
@@ -12,7 +11,6 @@ import './client.scss';
 const Client = () => {
   return (
       <div id="client" data-test='client'>
-        <Header />
         <Switch>
 
           <Route exact path="/" component={Home} />

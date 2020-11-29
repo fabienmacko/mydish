@@ -1,6 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery, gql, from } from '@apollo/client';
+import Header from '../Header';
+import { useQuery, gql } from '@apollo/client';
+import {Food} from '../../../../interfaces';
 import './menu.scss';
 
 const Menu = () => {
@@ -22,12 +24,22 @@ const Menu = () => {
   if (loading) console.log('loading');;
   if (error) console.log('error');;
 
-  console.log(data);
+  if (data) {
+
+    var dataObject = data.foods.filter((food: Food) => food.category.toLowerCase() === category);
+  }
+
+
 
   return (
-    <div id="menu">
-      Category: {category}
+    <>
+    <Header pageTitle={`Select your favorite ${category}`} />
+    <div id="menu" data-test="menu">
+      {
+        dataObject && <p>Category: {category}</p>
+      }
     </div>
+    </>
   );
 }
 

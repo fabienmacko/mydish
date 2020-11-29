@@ -1,7 +1,6 @@
 @import "../../../style/colors/colors.scss";
 
 #header {
-  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,9 +8,27 @@
   top: 0;
   width: 100%;
   z-index: 10;
-  background: linear-gradient(0deg, rgba(34,193,195,0) 0%,#d2772985 65%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%,#000000e7 100%);
+  color: $beige;
+
+  h1 {
+    padding: 50px;
+    text-transform: uppercase;
+  }
+
   img {
-    height: 150px;
-    margin: 30px;
+    height: 100px;
+    top: 10px;
+    left: 10px;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .fa-shopping-cart {
+    color: $beige;
+    position: absolute;
+    top: 50px;
+    right: 30px;
+    cursor: pointer;
   }
 }

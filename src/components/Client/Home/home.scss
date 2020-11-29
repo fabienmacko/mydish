@@ -10,12 +10,12 @@
     cursor: pointer;
     position: relative;
     transition: transform 0.2s, width 0.8s;
+    overflow: hidden;
 
-    &:hover {
-      transform: scale(1.1);
-      width: 50% !important;
+    &:hover  {
       .food-category__background {
-        filter: brightness(0.9);
+        filter: brightness(0.7);
+        transform: scale(1.1);
       }
     }
 
@@ -23,7 +23,7 @@
     .food-category__background {
       pointer-events: none;
       transition: 0.2s ease-in-out;
-      filter: brightness(0.5);
+      filter: brightness(0.4);
       height: 100%;
       width: 100%;
       position: absolute;
