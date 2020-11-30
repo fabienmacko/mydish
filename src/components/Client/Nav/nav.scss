@@ -1,0 +1,37 @@
+@import "../../../style/colors/colors.scss";
+
+
+#nav {
+  height: 90px;
+  margin-top: -100px;
+  position: relative;
+  background-color: $level2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 10;
+  &.fixed {
+    position: fixed;
+    top: 90px;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+    li a{
+      margin: 0 10px;
+      color: #626365;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      text-decoration: none;
+      &.active {
+        color: $beige;
+      }
+    }
+  }
+}

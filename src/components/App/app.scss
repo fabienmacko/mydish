@@ -3,3 +3,33 @@
 #app {
   font-family: 'Lato', sans-serif;
 };
+
+html,body {
+  border: 0;
+   margin: 0;
+   padding: 0;
+  height:100%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: $level1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $beige;
+  transition: .4s;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  transition: .4s;
+  background: $level4;
+}

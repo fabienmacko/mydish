@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Menu from './index';
-import {findByTestAttribute} from '../../../../utils';
+import {findByTestAttribute} from '../../../utils';
 
 
 const setUp = (props={}) => {
@@ -17,7 +17,6 @@ describe('Menu component', () => {
   })
 
   it('Should render without errors', () => {
-    console.log(component);
     const wrapper = findByTestAttribute(component, 'menu');
     expect(wrapper.length).toBe(1);
   });

@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import Client from './index';
-import {findByTestAttribute} from '../../../utils';
+import {findByTestAttribute} from '../../utils';
 
 
 const setUp = (props={}) => {

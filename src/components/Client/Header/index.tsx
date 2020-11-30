@@ -10,7 +10,6 @@ type HeaderProps = {
 const Header = ({pageTitle}: HeaderProps) => {
 
   useEffect(() => {
-    console.log('header open');
     setTimeout(() => {
       document.querySelector('#header h1')?.classList.add('aos-animate');
     }, 0);

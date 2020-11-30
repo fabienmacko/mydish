@@ -7,7 +7,7 @@ import {Food} from '../../../../interfaces';
 
 const Home = () => {
 
-  const FOODS = gql`
+  const GET_FOODS = gql`
   query {
     foods{
       id
@@ -21,10 +21,20 @@ const Home = () => {
   }
   `;
 
-  const { loading, error, data } = useQuery(FOODS);
-  if (loading) console.log('loading');
-  if (error) console.log('error');
-  if (data) console.log('DATA');
+  const { data } = useQuery(GET_FOODS);
+
+  if (data) {
+
+    // Fade out the loader when the app has been loaded
+    var loader: HTMLElement = document.getElementById("loader")!;
+    if (loader) {
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.remove();
+      }, 400);
+    }
+
+  };
 
   return (
     <>

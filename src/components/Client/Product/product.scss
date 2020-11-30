@@ -1,8 +1,9 @@
 @import "../../../style/colors/colors.scss";
 
 #product {
+  font-family: 'Lato';
   width: 70%;
-  margin: 0 auto !important;
+  margin: 3rem auto;
   color: $font-grey;
 
   /* ----- Variables ----- */
@@ -112,7 +113,7 @@
 
   .price {
     margin: 1.5em 0;
-    color: $color-highlight;
+    color: $beige;
     font-size: 1.2em;
 
     span {
@@ -139,7 +140,7 @@
 
       &:first-child,
       &:hover {
-        border: 1px solid $color-secondary;
+        border: 1px solid $beige;
       }
     }
 
@@ -173,15 +174,21 @@
     border: none;
     border-radius: 7px;
     font-size: 0.8em;
-    font-weight: 700;
+    font-weight: bold;
     letter-spacing: 1.3px;
-    color: $font-white;
-    background-color: $color-highlight;
-    box-shadow: 2px 2px 25px -7px $color-primary;
+    color: $level3;
+    background-color: $beige;
     cursor: pointer;
+    font-family: 'Lato';
+    transition: .4s;
 
     &:active {
       transform: scale(0.97);
+    }
+
+    &:hover {
+      background-color: $level3;
+      color: $beige;
     }
   }
 

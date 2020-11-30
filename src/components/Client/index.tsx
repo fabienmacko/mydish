@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './Home';
 import Product from './Product';
 import Menu from './Menu';
+import NotFound from './NotFound';
 import {
   Switch,
   Route
@@ -15,10 +16,11 @@ const Client = () => {
 
           <Route exact path="/" component={Home} />
 
-          <Route path="/menu/:category" component={Menu} />
+          <Route exact path="/menu/:category" component={Menu} />
 
-          <Route path="/product/:productId" component={Product} />
+          <Route exact path="/product/:productId" component={Product} />
 
+          <Route component={NotFound} />
         </Switch>
       </div>
   );
