@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
-import Header from '../Header'; 
+
 import './home.scss';
+import Header from '../Header'; 
 import {Food} from '../../../../interfaces';
+import hideLoader from '../../../utils/hideLoader';
 
 const Home = () => {
 
@@ -24,16 +26,7 @@ const Home = () => {
   const { data } = useQuery(GET_FOODS);
 
   if (data) {
-
-    // Fade out the loader when the app has been loaded
-    var loader: HTMLElement = document.getElementById("loader")!;
-    if (loader) {
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.remove();
-      }, 400);
-    }
-
+    hideLoader();
   };
 
   return (

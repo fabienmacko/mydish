@@ -3,6 +3,7 @@ import Home from './Home';
 import Product from './Product';
 import Menu from './Menu';
 import NotFound from './NotFound';
+import Cart from './Cart';
 import {
   Switch,
   Route
@@ -15,6 +16,8 @@ const Client = () => {
         <Switch>
 
           <Route exact path="/" component={Home} />
+
+          <Route exact path="/cart" component={Cart} />
 
           <Route exact path="/menu/:category" component={Menu} />
 

@@ -28,3 +28,10 @@ export interface ProductInterface {
   ingredients: string[],
   fadeDirection: string
 }
+
+export interface CartProductInterface {
+  id: string,
+  name: string,
+  price: number,
+  imagePath: string
+}

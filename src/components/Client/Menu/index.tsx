@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Header';
 import { useQuery } from '@apollo/client';
-import { Parallax } from 'react-scroll-parallax';
 
 import Product from '../Product';
 import './menu.scss';
@@ -12,6 +11,9 @@ import Nav from '../Nav';
 import {GET_FOOD} from '../../../utils/graphql';
 
 import {Dish} from '../../../../interfaces';
+
+import hideLoader from '../../../utils/hideLoader';
+import ParallaxImage from '../ParallaxImage';
 
 const Menu = () => {
 
@@ -27,16 +29,7 @@ const Menu = () => {
   });
 
   if (data) {
-
-    // Fade out the loader when the app has been loaded
-    var loader: HTMLElement = document.getElementById("loader")!;
-    if (loader) {
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.remove();
-      }, 400);
-    }
-
+    hideLoader();
   };
   
 
@@ -45,17 +38,7 @@ const Menu = () => {
       <Header pageTitle={`Select your favorite ${category}`} />
       <div id="menu" data-test="menu">
         {
-          data && (
-            <Parallax className="header-image" y={[20, -20]} tagOuter="figure">
-                <div style={{
-                  backgroundImage: `url('${data.food.imagePath}')`,
-                  width: '100%',
-                  height: '500px',
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}></div>
-            </Parallax>
-          )
+          data && <ParallaxImage imagePath={data.food.imagePath} />
         }
         
         <Nav />

@@ -3,7 +3,9 @@ import './product.scss';
 
 import {ProductInterface} from '../../../../interfaces';
 
-const Product = ({name, price, ingredients, imagePath, fadeDirection}: ProductInterface) => {
+import {addProduct} from '../../../utils/localStorageProducts';
+
+const Product = ({id, name, price, ingredients, imagePath, fadeDirection}: ProductInterface) => {
 
   return (
     <div id="product" data-aos={`fade-${fadeDirection}`}>
@@ -33,7 +35,7 @@ const Product = ({name, price, ingredients, imagePath, fadeDirection}: ProductIn
               }
             </ul>
           </div>
-          <button className="buy--btn">ADD TO CART</button>
+          <button className="buy--btn" onClick={() => addProduct({id, name, price, imagePath})} >ADD TO CART</button>
         </div>
       </section>
     </div>

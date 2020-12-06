@@ -10,6 +10,7 @@ const Nav = () => {
   const { data } = useQuery(GET_FOODS);
 
   useEffect(() => {
+    
     let isRendered = true;
 
     window.addEventListener('scroll', (e) => {
