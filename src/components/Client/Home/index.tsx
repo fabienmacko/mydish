@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
@@ -8,6 +8,10 @@ import {Food} from '../../../../interfaces';
 import hideLoader from '../../../utils/hideLoader';
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = "MyDish"
+  });
 
   const GET_FOODS = gql`
   query {

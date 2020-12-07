@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../Header';
 import { useQuery } from '@apollo/client';
@@ -17,8 +17,11 @@ import ParallaxImage from '../ParallaxImage';
 
 const Menu = () => {
 
-  const { category } = useParams<{ category: string }>();
+  useEffect(() => {
+    document.title = categoryWithCapitalLetter+" Menu | MyDish"
+  });
 
+  const { category } = useParams<{ category: string }>();
 
   const categoryWithCapitalLetter = `${category[0].toUpperCase()}${category.slice(1)}`;
 

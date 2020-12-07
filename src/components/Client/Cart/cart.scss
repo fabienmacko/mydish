@@ -23,6 +23,17 @@ serif;
   background-color: $level4;
   overflow: hidden;
 
+  h2 {
+    font-size: 2rem;
+    color: $red;
+    padding: 20px;
+    text-transform: uppercase;
+    border: 1px solid $beige;
+    border-radius: 5px;
+    width: fit-content;
+    margin: 5rem auto;
+  }
+
   .cartWrap {
     padding: 0;
   }
@@ -185,6 +196,7 @@ serif;
           display: flex;
           align-items: center;
           justify-content: center;
+          margin-right: 30px;
 
           .fa-plus:hover {
             color: $green;
@@ -278,6 +290,12 @@ serif;
       .cartSection {
         display: flex;
         align-items: center;
+        flex: 1;
+        justify-content: space-around;
+
+        &.title {
+          justify-content: flex-start;
+        }
 
         .itemImg {
           width: 15rem;
@@ -431,6 +449,10 @@ serif;
     float: right;
     width: 35%;
 
+    ul {
+      list-style-type: none;
+    }
+
     .totalRow {
       padding: .5em;
       text-align: right;
@@ -438,6 +460,7 @@ serif;
       &.final {
         font-size: 1.25em;
         font-weight: bold;
+        color: $beige;
       }
 
       span {
@@ -498,9 +521,9 @@ serif;
         }
 
         .cartSection {
-          width: 90%;
-          display: block;
-          float: left;
+          display: flex;
+          flex: 1;
+          justify-content: space-around;
 
 
           &.prodTotal,

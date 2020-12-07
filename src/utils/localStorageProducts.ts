@@ -1,6 +1,4 @@
-import CartProduct from "../components/Client/Cart/CartProduct";
-
-interface Dish {
+export interface Dish {
   id: string,
   name: string,
   price: number,
@@ -28,7 +26,7 @@ export const removeProduct = (id: string) => {
   const dishToDelete = cart.find((dish: Dish) => dish.id === id);
   const indexOfItemToDelete = cart.indexOf(dishToDelete);
 
-  cart.splice(indexOfItemToDelete, 1);
+  cart.splice(indexOfItemToDelete, 1)
   
   localStorage.setItem('cart', JSON.stringify(cart));
 }
@@ -37,6 +35,18 @@ export const getProductById = (id: string) => {
   if (localStorage.getItem('cart')){
     return JSON.parse(localStorage.getItem('cart')!).filter((dish: Dish) => dish.id === id);
   }
+}
+
+export const removeAllProductsWithId = (id: string) => {
+  let cart = [];
+
+  if (localStorage.getItem('cart')){
+    cart = JSON.parse(localStorage.getItem('cart')!);
+  }
+
+  const newCart = cart.filter((dish: Dish) => dish.id !== id);
+  
+  localStorage.setItem('cart', JSON.stringify(newCart));
 }
 
 export const getUniqueProducts = () => {

@@ -1,45 +1,58 @@
 import React, {useState} from 'react';
 
-import {getProductById,removeProduct} from '../../../../utils/localStorageProducts';
+import {addProduct, getUniqueProducts, getProductById, removeProduct, removeAllProductsWithId} from '../../../../utils/localStorageProducts';
+import {Dish} from '../../../../utils/localStorageProducts';
 
 type CartProduct = {
   oddOrEven: string,
   id: string,
   name: string,
   price: number,
-  imagePath: string
+  imagePath: string,
+  setProductsToDisplay: any,
+  setCommandTotalPrice: any,
+  commandTotalPrice: number | undefined
 }
 
-const CartProduct = ({oddOrEven, id, name, price, imagePath}: CartProduct) => {
+const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProduct) => {
   
   const productQuantity = getProductById(id).length;
   // State
 
   const [quantity, setQuantity] = useState(productQuantity);
-  const [totalPrice, setTotalPrice] = useState(quantity * price);
+  const [productTotalPrice, setProductTotalPrice] = useState(quantity * price);
   
   const addQuantity = () => {
+    addProduct({id, name, price, imagePath});
     setQuantity(quantity + 1);
-    setTotalPrice((quantity + 1) * price);
+    setProductTotalPrice((quantity + 1) * price);
+    setCommandTotalPrice(commandTotalPrice! + price);
   }
+
   const reduceQuantity = () => {
-
-    removeProduct(id);
-
     if (shouldQuantityBeReduced()) {
+      removeProduct(id);
       setQuantity(quantity - 1);
-      setTotalPrice((quantity - 1) * price); 
+      setProductTotalPrice((quantity - 1) * price);
+      setCommandTotalPrice(commandTotalPrice! - price);
     }
   }
 
   const shouldQuantityBeReduced = (): boolean => {
-    return quantity > 0 ? true: false;
+    return quantity > 1 ? true: false;
+  }
+
+  const deleteProductFromCart = () => {
+    var newCart = getUniqueProducts()!.filter((dish: Dish) => dish.id !== id);
+    setProductsToDisplay(newCart);
+    removeAllProductsWithId(id);
+    setCommandTotalPrice(commandTotalPrice! - (price * quantity))
   }
 
   return (
     <li className={'items '+oddOrEven}>
       <div className="infoWrap"> 
-        <div className="cartSection">
+        <div className="cartSection title">
             
           <div className="itemImg" style={{
             backgroundImage: `url('${imagePath}')`
@@ -49,25 +62,27 @@ const CartProduct = ({oddOrEven, id, name, price, imagePath}: CartProduct) => {
       
         </div>  
 
-        <div className="quantityStock">
-          <div className="quantityManager">
-            <div onClick={reduceQuantity}><i className="fas fa-minus"></i></div>
-            <input type="text" className="qty" min="0" onChange={(e) => setQuantity(e.target.value)} value={quantity} />
-            <div onClick={addQuantity}><i className="fas fa-plus"></i></div>
-            
-            x {`${price}€`}
-            
-          </div>
-      
-      
-        </div>
-        <p className="stockStatus in">In Stock</p>
+        <div className="cartSection">
+          <div className="quantityStock">
+            <div className="quantityManager">
+              <div onClick={reduceQuantity}><i className="fas fa-minus"></i></div>
+              <input type="text" className="qty" min="0" onChange={(e) => setQuantity(e.target.value)} value={quantity} />
+              <div onClick={addQuantity}><i className="fas fa-plus"></i></div>
+              
+              x {`${price}€`}
+              
+            </div>
         
-        <div className="prodTotal cartSection">
-          <p>{totalPrice}€</p>
-        </div>
-        <div className="cartSection removeWrap">
-          <button><i className="remove far fa-times-circle fa-2x"></i></button>
+        
+          </div>
+          <p className="stockStatus in">In Stock</p>
+          
+          <div className="prodTotal cartSection">
+            <p>{productTotalPrice}€</p>
+          </div>
+          <div className="cartSection removeWrap">
+            <button onClick={deleteProductFromCart}><i className="remove far fa-times-circle fa-2x"></i></button>
+          </div>
         </div>
       </div>
     </li>
