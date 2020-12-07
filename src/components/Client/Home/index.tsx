@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
 import './home.scss';
-import Header from '../Header'; 
+import Header from '../../../containers/Header'; 
 import {Food} from '../../../../interfaces';
 import hideLoader from '../../../utils/hideLoader';
 

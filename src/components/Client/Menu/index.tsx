@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import Header from '../Header';
+import Header from '../../../containers/Header';
 import { useQuery } from '@apollo/client';
 
 import Product from '../Product';

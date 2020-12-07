@@ -4,16 +4,20 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import {ApolloProvider} from '@apollo/client';
+import { Provider } from 'react-redux';
+import store from './store';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import client from './apolloProvider';
 
 ReactDOM.render(
     <Router>
-        <ParallaxProvider>
-            <ApolloProvider client={client}>
-                <App />
-            </ApolloProvider>
-        </ParallaxProvider>
+        <Provider store={store}>
+            <ParallaxProvider>
+                <ApolloProvider client={client}>
+                    <App />
+                </ApolloProvider>
+            </ParallaxProvider>
+        </Provider>
     </Router>
     ,
     document.getElementById('root'));

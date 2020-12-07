@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import './cart.scss';
 
-import Header from '../Header';
+import Header from '../../../containers/Header';
 import hideLoader from '../../../utils/hideLoader';
 
 import {getUniqueProducts, getProducts} from '../../../utils/localStorageProducts';

@@ -2,13 +2,15 @@ import React, { useEffect } from 'react';
 import logo from '../../../style/images/mydish_logo.png';
 import {Link} from 'react-router-dom';
 import './header.scss';
-
+import {Dish} from '../../../../interfaces';
 type HeaderProps = {
-  pageTitle: string
+  pageTitle: string,
+  cart?: any
 }
 
-const Header = ({pageTitle}: HeaderProps) => {
-
+const Header = ({pageTitle, cart}: HeaderProps) => {
+  console.log(cart);
+  
   useEffect(() => {
     setTimeout(() => {
       document.querySelector('#header h1')?.classList.add('aos-animate');
