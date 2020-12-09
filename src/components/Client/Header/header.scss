@@ -16,6 +16,20 @@
     text-transform: uppercase;
   }
 
+  .itemsCounter {
+    border-radius: 100%;
+    height: 23px;
+    width: 23px;
+    background-color: red;
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   img {
     height: 100px;
     top: 10px;
@@ -24,11 +38,14 @@
     cursor: pointer;
   }
 
-  .fa-shopping-cart {
-    color: $beige;
+  .cartButton {
     position: absolute;
     top: 50px;
     right: 30px;
     cursor: pointer;
+
+    .fa-shopping-cart {
+      color: $beige;
+    }
   }
 }

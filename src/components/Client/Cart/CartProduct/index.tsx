@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {addProduct, getUniqueProducts, getProductById, removeProduct, removeAllProductsWithId} from '../../../../utils/localStorageProducts';
 import {Dish} from '../../../../utils/localStorageProducts';
 
-type CartProduct = {
+type CartProductInterface = {
   oddOrEven: string,
   id: string,
   name: string,
@@ -14,7 +14,7 @@ type CartProduct = {
   commandTotalPrice: number | undefined
 }
 
-const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProduct) => {
+const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
   
   const productQuantity = getProductById(id).length;
   // State
@@ -65,9 +65,9 @@ const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisp
         <div className="cartSection">
           <div className="quantityStock">
             <div className="quantityManager">
-              <div onClick={reduceQuantity}><i className="fas fa-minus"></i></div>
-              <input type="text" className="qty" min="0" onChange={(e) => setQuantity(e.target.value)} value={quantity} />
-              <div onClick={addQuantity}><i className="fas fa-plus"></i></div>
+              <button onClick={reduceQuantity}><i className="fas fa-minus"></i></button>
+              <input readOnly type="text" className="qty" min="0" onChange={(e) => setQuantity(e.target.value)} value={quantity} />
+              <button onClick={addQuantity}><i className="fas fa-plus"></i></button>
               
               x {`${price}€`}
               
@@ -81,7 +81,7 @@ const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisp
             <p>{productTotalPrice}€</p>
           </div>
           <div className="cartSection removeWrap">
-            <button onClick={deleteProductFromCart}><i className="remove far fa-times-circle fa-2x"></i></button>
+            <button className="deleteCartItem" onClick={deleteProductFromCart}><i className="remove far fa-times-circle fa-2x"></i></button>
           </div>
         </div>
       </div>

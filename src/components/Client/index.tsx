@@ -1,6 +1,5 @@
 import React from 'react';
 import Home from './Home';
-import Product from './Product';
 import Menu from './Menu';
 import NotFound from './NotFound';
 import Cart from './Cart';
@@ -10,7 +9,12 @@ import {
 } from "react-router-dom";
 import './client.scss';
 
+import hideHTMLLoader from '../../utils/hideLoader';
+
 const Client = () => {
+
+  hideHTMLLoader();
+
   return (
       <div id="client" data-test='client'>
         <Switch>
@@ -20,8 +24,6 @@ const Client = () => {
           <Route exact path="/cart" component={Cart} />
 
           <Route exact path="/menu/:category" component={Menu} />
-
-          <Route exact path="/product/:productId" component={Product} />
 
           <Route component={NotFound} />
         </Switch>

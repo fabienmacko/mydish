@@ -3,16 +3,16 @@ import { useParams } from 'react-router-dom';
 import Header from '../../../containers/Header';
 import { useQuery } from '@apollo/client';
 
-import Product from '../Product';
+import Product from '../../../containers/Product';
 import './menu.scss';
 
 import Nav from '../Nav';
 
+import Loader from '../Loader';
+
 import {GET_FOOD} from '../../../utils/graphql';
 
 import {Dish} from '../../../../interfaces';
-
-import hideLoader from '../../../utils/hideLoader';
 import ParallaxImage from '../ParallaxImage';
 
 const Menu = () => {
@@ -25,16 +25,13 @@ const Menu = () => {
 
   const categoryWithCapitalLetter = `${category[0].toUpperCase()}${category.slice(1)}`;
 
+  
   const { data } = useQuery(GET_FOOD, {
     variables: {
       category: categoryWithCapitalLetter
     }
   });
 
-  if (data) {
-    hideLoader();
-  };
-  
 
   return (
     <>
@@ -47,9 +44,11 @@ const Menu = () => {
         <Nav />
 
         {
-          data && data.food.dishs.map(({id, name, price, ingredients, imagePath}: Dish, index: number) => {
-          return <Product fadeDirection={index%2 === 0 ? 'left' : 'right'} key={id} id={id} name={name} price={price} ingredients={ingredients} imagePath={imagePath}  />
-          })
+          data ? data.food.dishs.map(({id, name, price, ingredients, imagePath}: Dish, index: number) =>
+          <Product fadeDirection={index%2 === 0 ? 'left' : 'right'} key={id} id={id} name={name} price={price} ingredients={ingredients} imagePath={imagePath}  />
+          )
+          :
+          <Loader />
         }
       </div>
     </>

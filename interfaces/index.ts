@@ -1,7 +1,3 @@
-export interface State {
-  food: [],
-};
-
 export interface Food {
   id: string,
   category: string,
@@ -26,7 +22,8 @@ export interface ProductInterface {
   price: number,
   imagePath: string,
   ingredients: string[],
-  fadeDirection: string
+  fadeDirection: string,
+  addNewItemToCart: any
 }
 
 export interface CartProductInterface {

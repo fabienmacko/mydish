@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import './cart.scss';
 
 import Header from '../../../containers/Header';
-import hideLoader from '../../../utils/hideLoader';
 
 import {getUniqueProducts, getProducts} from '../../../utils/localStorageProducts';
 import ParallaxImage from '../ParallaxImage';
@@ -15,7 +14,6 @@ import {Dish} from '../../../../interfaces';
 const Cart = () => {
 
   useEffect(() => {
-    hideLoader();
     document.title = "Cart | MyDish"
   });
 
@@ -57,7 +55,7 @@ const Cart = () => {
         </div>
         
         <div className="promoCode"><label htmlFor="promo">Have A Promo Code?</label><input type="text" name="promo" placeholder="Enter Code" />
-        <a href='/yes' className="btn"></a></div>
+        <a href='#' className="btn"></a></div>
         
         <div className="subtotal cf">
           <ul>

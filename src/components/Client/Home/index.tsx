@@ -5,7 +5,7 @@ import { useQuery, gql } from '@apollo/client';
 import './home.scss';
 import Header from '../../../containers/Header'; 
 import {Food} from '../../../../interfaces';
-import hideLoader from '../../../utils/hideLoader';
+import Loader from '../Loader';
 
 const Home = () => {
 
@@ -29,16 +29,12 @@ const Home = () => {
 
   const { data } = useQuery(GET_FOODS);
 
-  if (data) {
-    hideLoader();
-  };
-
   return (
     <>
     <Header pageTitle="What do you want to eat?" />
     <div id="home">
       {
-        data && data.foods.map((foodItem: Food, index: number) => (
+        data ? data.foods.map((foodItem: Food, index: number) => (
           <Link to={`/menu/${foodItem.category.toLowerCase()}`} key={foodItem.id} className="food-category" style={{
             width: `calc(100%/${data.foods.length})`
           }}>
@@ -49,6 +45,8 @@ const Home = () => {
             }}></div>
           </Link>
         ))
+        : 
+        <Loader />
       }
     </div>
     </>

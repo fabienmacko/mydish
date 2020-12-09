@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import {Dish} from '../../interfaces';
-import Header from '../components/Client/Header';
+import CartProduct from '../components/Client/Cart/CartProduct';
 import {StateInterface} from '../store/reducer';
 
 
@@ -16,4 +16,4 @@ const mapDispatchToProps = () => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Header);
+)(CartProduct);

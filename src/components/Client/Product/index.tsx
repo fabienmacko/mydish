@@ -1,12 +1,37 @@
 import React from 'react';
 import './product.scss';
 
+import Swal from 'sweetalert2';
+
+import {CartProductInterface} from '../../../../interfaces';
+
 import {ProductInterface} from '../../../../interfaces';
 
 import {addProduct} from '../../../utils/localStorageProducts';
 
-const Product = ({id, name, price, ingredients, imagePath, fadeDirection}: ProductInterface) => {
+const Product = ({id, name, price, ingredients, imagePath, fadeDirection, addNewItemToCart}: ProductInterface) => {
 
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 4000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+  });
+
+  const handleAddProductClick = (ItemClicked: CartProductInterface) => {
+    Toast.fire({
+      icon: 'success',
+      title: `${name} has been added to your cart.`
+    });
+
+    addProduct(ItemClicked);
+    addNewItemToCart(ItemClicked);
+  }  
   return (
     <div id="product" data-aos={`fade-${fadeDirection}`}>
       <section className="product">
@@ -35,7 +60,7 @@ const Product = ({id, name, price, ingredients, imagePath, fadeDirection}: Produ
               }
             </ul>
           </div>
-          <button className="buy--btn" onClick={() => addProduct({id, name, price, imagePath})} >ADD TO CART</button>
+          <button className="buy--btn" onClick={() => handleAddProductClick({id, name, price, imagePath})} >ADD TO CART</button>
         </div>
       </section>
     </div>

@@ -1,8 +1,8 @@
 import {getProducts} from '../utils/localStorageProducts';
-import {Dish} from '../../interfaces';
+import {CartProductInterface} from '../../interfaces';
 
 export interface StateInterface {
-  cart: Dish[]
+  cart: CartProductInterface[]
 }
 
 /**
@@ -17,17 +17,20 @@ const initialState = {
  * Types
  */
 
-export const UPDATE_CART = 'UPDATE_CART';
+export const ADD_NEW_ITEM_TO_CART = 'ADD_NEW_ITEM_TO_CART';
 
 /**
  * Reducer
  */
 const reducer = (state: StateInterface = initialState, action: any = {}) => {
   switch (action.type) {
-    case UPDATE_CART:
+    case ADD_NEW_ITEM_TO_CART:
       return {
         ...state,
-        foods: action.foods,
+        cart: [
+          ...state.cart,
+          action.newItem
+        ],
       };
 
     default:
@@ -39,9 +42,9 @@ const reducer = (state: StateInterface = initialState, action: any = {}) => {
  * Action Creators
  */
 
-export const updateCart = (newCart: Dish[]) => ({
-  type: UPDATE_CART,
-  newCart
+export const addNewItemToCart = (newItem: CartProductInterface[]) => ({
+  type: ADD_NEW_ITEM_TO_CART,
+  newItem
 })
 
 export default reducer;
