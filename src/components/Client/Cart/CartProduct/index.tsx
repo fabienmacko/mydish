@@ -12,10 +12,12 @@ type CartProductInterface = {
   setProductsToDisplay: any,
   setCommandTotalPrice: any,
   commandTotalPrice: number | undefined,
-  addNewItemToCart: any
+  addNewItemToCart: any,
+  removeItemFromCart: any,
+  removeItemsFromCart: any
 }
 
-const CartProduct = ({addNewItemToCart, commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
+const CartProduct = ({removeItemsFromCart, removeItemFromCart, addNewItemToCart, commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
   
   const productQuantity = getProductById(id).length;
   // State
@@ -35,6 +37,7 @@ const CartProduct = ({addNewItemToCart, commandTotalPrice, setCommandTotalPrice,
   const reduceQuantity = () => {
     if (shouldQuantityBeReduced()) {
       removeProduct(id);
+      removeItemFromCart(id);
       setQuantity(quantity - 1);
       setProductTotalPrice((quantity - 1) * price);
       setCommandTotalPrice(commandTotalPrice! - price);
@@ -49,7 +52,8 @@ const CartProduct = ({addNewItemToCart, commandTotalPrice, setCommandTotalPrice,
     var newCart = getUniqueProducts()!.filter((dish: Dish) => dish.id !== id);
     setProductsToDisplay(newCart);
     removeAllProductsWithId(id);
-    setCommandTotalPrice(commandTotalPrice! - (price * quantity))
+    setCommandTotalPrice(commandTotalPrice! - (price * quantity));
+    removeItemsFromCart(id);
   }
 
   return (

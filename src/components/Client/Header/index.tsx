@@ -9,7 +9,6 @@ type HeaderProps = {
 }
 
 const Header = ({pageTitle, cart}: HeaderProps) => {
-  console.log(cart);
 
   const numberOfItemsInCart = cart.length;
   
