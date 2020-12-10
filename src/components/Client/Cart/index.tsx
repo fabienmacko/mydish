@@ -8,7 +8,7 @@ import {getUniqueProducts, getProducts} from '../../../utils/localStorageProduct
 import ParallaxImage from '../ParallaxImage';
 import CommandsImagePath from '../../../style/images/commands.jpg';
 import {CartProductInterface} from '../../../../interfaces';
-import CartProduct from './CartProduct';
+import CartProduct from '../../../containers/CartProduct';
 import {Dish} from '../../../../interfaces';
 
 const Cart = () => {

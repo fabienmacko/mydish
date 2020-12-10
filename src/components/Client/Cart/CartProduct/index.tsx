@@ -11,10 +11,11 @@ type CartProductInterface = {
   imagePath: string,
   setProductsToDisplay: any,
   setCommandTotalPrice: any,
-  commandTotalPrice: number | undefined
+  commandTotalPrice: number | undefined,
+  addNewItemToCart: any
 }
 
-const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
+const CartProduct = ({addNewItemToCart, commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
   
   const productQuantity = getProductById(id).length;
   // State
@@ -23,10 +24,12 @@ const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisp
   const [productTotalPrice, setProductTotalPrice] = useState(quantity * price);
   
   const addQuantity = () => {
-    addProduct({id, name, price, imagePath});
+    const product = {id, name, price, imagePath};
+    addProduct(product);
     setQuantity(quantity + 1);
     setProductTotalPrice((quantity + 1) * price);
     setCommandTotalPrice(commandTotalPrice! + price);
+    addNewItemToCart(product);
   }
 
   const reduceQuantity = () => {
@@ -75,7 +78,7 @@ const CartProduct = ({commandTotalPrice, setCommandTotalPrice, setProductsToDisp
         
         
           </div>
-          <p className="stockStatus in">In Stock</p>
+          {/* <p className="stockStatus in">In Stock</p> */}
           
           <div className="prodTotal cartSection">
             <p>{productTotalPrice}€</p>

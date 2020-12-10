@@ -18,12 +18,13 @@
 
   .itemsCounter {
     border-radius: 100%;
-    height: 23px;
-    width: 23px;
-    background-color: red;
+    height: 21px;
+    width: 21px;
     position: absolute;
-    top: -25px;
-    left: -25px;
+    top: 7px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    left: 20px;
     color: white;
     display: flex;
     align-items: center;
