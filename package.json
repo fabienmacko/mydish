@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.2.5",
+    "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -15,6 +16,7 @@
     "@types/react-redux": "^7.1.11",
     "@types/react-router-dom": "^5.1.5",
     "aos": "^2.3.4",
+    "axios": "^0.21.0",
     "graphql": "^15.4.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
