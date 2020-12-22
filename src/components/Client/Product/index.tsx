@@ -9,8 +9,13 @@ import {ProductInterface} from '../../../../interfaces';
 
 import {addProduct} from '../../../utils/localStorageProducts';
 
+import formatPrice from '../../../utils/formatPrice';
+
 const Product = ({id, name, price, ingredients, imagePath, fadeDirection, addNewItemToCart}: ProductInterface) => {
 
+  const formattedPrice = formatPrice(price);
+  console.log(formattedPrice);
+  
   const Toast = Swal.mixin({
     toast: true,
     position: 'top-start',
@@ -50,7 +55,7 @@ const Product = ({id, name, price, ingredients, imagePath, fadeDirection, addNew
             <h1>{name}</h1>
           </div>
           <div className="price">
-            <span>{price}</span>€
+            <span>{formattedPrice}</span>€
           </div>
           <div className="description">
             <h3>INGREDIENTS</h3>

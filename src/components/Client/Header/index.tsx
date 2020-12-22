@@ -10,7 +10,7 @@ type HeaderProps = {
 
 const Header = ({pageTitle, cart}: HeaderProps) => {
 
-  const numberOfItemsInCart = cart.length;
+  const numberOfItemsInCart: number = cart ? cart.length : 0;
   
   useEffect(() => {
     setTimeout(() => {

@@ -12,6 +12,7 @@ import CommandsImagePath from '../../../style/images/commands.jpg';
 import { CartProductInterface } from '../../../../interfaces';
 import CartProduct from '../../../containers/CartProduct';
 import { Dish } from '../../../../interfaces';
+import formatPrice from '../../../utils/formatPrice';
 
 
 const stripePromise = loadStripe("pk_test_51HwtM9FDuWQ18EbPREwlfLF36MVd9Xn5RLcjFYfRAzL5xJ1l8GwK1WBsLevKtF7DEbC8JbH3TAvETdiWJwZdhXiB00cxtvLJ60");
@@ -97,7 +98,7 @@ const Cart = () => {
 
         <div className="subtotal cf">
           <ul>
-            <li className="totalRow final"><span className="label">Total</span><span className="value">{commandTotalPrice}€</span></li>
+            <li className="totalRow final"><span className="label">Total</span><span className="value">{formatPrice(commandTotalPrice)}€</span></li>
 
             {productsToDisplay!.length > 0 && <li className="totalRow"><button className="btn continue" onClick={handleCheckout}>Checkout</button></li>}
 
