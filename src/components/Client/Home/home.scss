@@ -1,16 +1,21 @@
 @import "../../../style/colors/colors.scss";
 
 #home {
-  overflow: hidden;
+  overflow: auto;
   height: 100vh;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  padding-top: 100px;
 
   .food-category {
+    z-index: 11;
     cursor: pointer;
     position: relative;
     transition: transform 0.2s, width 0.8s;
     overflow: hidden;
+    width: 100%;
 
     &:hover  {
       .food-category__background {
@@ -27,6 +32,37 @@
       height: 100%;
       width: 100%;
       position: absolute;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    .food-category {
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s, width 0.8s;
+      overflow: hidden;
+      flex: 1;
+  
+      &:hover  {
+        .food-category__background {
+          filter: brightness(0.7);
+          transform: scale(1.1);
+        }
+      }
+  
+    
+      .food-category__background {
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        filter: brightness(0.4);
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-position: center;
+        background-size: cover;
+      }
     }
   }
 

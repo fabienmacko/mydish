@@ -54,16 +54,25 @@ const Product = ({id, name, price, ingredients, imagePath, fadeDirection, addNew
           <div className="title">
             <h1>{name}</h1>
           </div>
-          <div className="price">
-            <span>{formattedPrice}</span>€
-          </div>
-          <div className="description">
-            <h3>INGREDIENTS</h3>
-            <ul>
-              {
-                ingredients.map((ingredient,index) => <li key={ingredient+index}>{ingredient}</li>)
-              }
-            </ul>
+          <div className="product__details">
+            <div className="price">
+              <span>{formattedPrice}</span>€
+            </div>
+            {
+              ingredients.length > 0 && (
+                <>
+                  <div className="separator"></div>
+                  <div className="description">
+                    <h3>INGREDIENTS</h3>
+                    <ul>
+                      {
+                        ingredients.map((ingredient,index) => <li key={ingredient+index}>{ingredient}</li>)
+                      }
+                    </ul>
+                  </div>
+                </>
+              )
+            }
           </div>
           <button className="buy--btn" onClick={() => handleAddProductClick({id, name, price, imagePath})} >ADD TO CART</button>
         </div>

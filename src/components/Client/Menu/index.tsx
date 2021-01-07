@@ -23,7 +23,7 @@ const Menu = () => {
 
   const { category } = useParams<{ category: string }>();
 
-  const categoryWithCapitalLetter = `${category[0].toUpperCase()}${category.slice(1)}`;
+  const categoryWithCapitalLetter = decodeURI(`${category[0].toUpperCase()}${category.slice(1)}`);
 
   
   const { data } = useQuery(GET_FOOD, {

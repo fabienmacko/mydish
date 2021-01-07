@@ -35,14 +35,8 @@ const Home = () => {
     <div id="home">
       {
         data ? data.foods.map((foodItem: Food, index: number) => (
-          <Link to={`/menu/${foodItem.category.toLowerCase()}`} key={foodItem.id} className="food-category" style={{
-            width: `calc(100%/${data.foods.length})`
-          }}>
-            <div className="food-category__background" style={{
-              backgroundImage: `url("${foodItem.imagePath}")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}></div>
+          <Link to={`/menu/${foodItem.category.toLowerCase()}`} key={foodItem.id} className="food-category">
+            <div className="food-category__background" style={{backgroundImage: `url("${foodItem.imagePath}")`}}></div>
           </Link>
         ))
         : 

@@ -19,7 +19,6 @@ type CartProductInterface = {
 }
 
 const CartProduct = ({removeItemsFromCart, removeItemFromCart, addNewItemToCart, commandTotalPrice, setCommandTotalPrice, setProductsToDisplay, oddOrEven, id, name, price, imagePath}: CartProductInterface) => {
-  console.log(price);
 
   const productQuantity = getProductById(id).length;
   // State
