@@ -1,13 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {useQuery} from '@apollo/client';
+import {Link} from 'react-router-dom';
+import logo from '../../../style/images/mydish_logo.png';
 import {NavLink} from 'react-router-dom';
 import './nav.scss';
 
 import {GET_FOODS} from '../../../utils/graphql';
 
-const Nav = () => {
+interface NavProps {
+  cart?: any
+}
+
+const Nav = ({cart}: NavProps) => {
 
   const { data } = useQuery(GET_FOODS);
+
+  const numberOfItemsInCart: number = cart ? cart.length : 0;
 
   useEffect(() => {
     
@@ -16,7 +24,7 @@ const Nav = () => {
     window.addEventListener('scroll', (e) => {
       let scrollTop = window.scrollY;
   
-      if (scrollTop >= 400 && isRendered) {
+      if (scrollTop >= 410 && isRendered) {
         setShouldNavBarBeFixedTop(true);
       } else if (isRendered) {
         setShouldNavBarBeFixedTop(false);
@@ -32,6 +40,8 @@ const Nav = () => {
 
   return (
     <nav id="nav" className={shouldNavBarBeFixedTop ? 'fixed' : ''}>
+      <Link to={`/`} ><img className={shouldNavBarBeFixedTop ? "active" : ""} src={logo} alt="MyDish logo" /></Link>
+      
      <ul>
       {
         data && data.foods.map((food: any) => (
@@ -41,6 +51,11 @@ const Nav = () => {
         ))
       }
      </ul>
+
+     <Link className={shouldNavBarBeFixedTop ? "cartButton active" : "cartButton"} to={`/cart`} >
+        <div className="itemsCounter">{numberOfItemsInCart}</div>
+        <i className="fas fa-shopping-cart fa-2x"></i>
+      </Link>
     </nav>
   );
 }

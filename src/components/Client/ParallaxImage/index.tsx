@@ -10,13 +10,8 @@ interface ParallaxImageProps {
 const ParallaxImage = ({imagePath}: ParallaxImageProps) => {
   return (
     <Parallax className="header-image" y={[20, -20]} tagOuter="figure">
-      <div style={{
-        backgroundImage: `url('${imagePath}')`,
-        width: '100%',
-        height: '500px',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        margin: 0
+      <div className="image-container" style={{
+        backgroundImage: `url('${imagePath}')`
       }}></div>
     </Parallax>
   )

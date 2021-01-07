@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import Product from '../../../containers/Product';
 import './menu.scss';
 
-import Nav from '../Nav';
+import Nav from '../../../containers/Nav';
 
 import Loader from '../Loader';
 
@@ -42,14 +42,16 @@ const Menu = () => {
         }
         
         <Nav />
+        <div className="products-container">
+          {
+            data ? data.food.dishs.map(({id, name, price, ingredients, imagePath}: Dish, index: number) =>
+            <Product fadeDirection={index%2 === 0 ? 'left' : 'right'} key={id} id={id} name={name} price={price} ingredients={ingredients} imagePath={imagePath}  />
+            )
+            :
+            <Loader />
+          }
+        </div>
 
-        {
-          data ? data.food.dishs.map(({id, name, price, ingredients, imagePath}: Dish, index: number) =>
-          <Product fadeDirection={index%2 === 0 ? 'left' : 'right'} key={id} id={id} name={name} price={price} ingredients={ingredients} imagePath={imagePath}  />
-          )
-          :
-          <Loader />
-        }
       </div>
     </>
   );

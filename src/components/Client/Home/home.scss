@@ -38,12 +38,17 @@
   }
 
   @media screen and (min-width: 760px) {
+
+    padding-top: 0;
+
     .food-category {
+      z-index: 0;
       cursor: pointer;
       position: relative;
       transition: transform 0.2s, width 0.8s;
       overflow: hidden;
       flex: 1;
+      padding-top: 0;
   
       &:hover  {
         .food-category__background {

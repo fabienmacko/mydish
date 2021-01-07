@@ -302,11 +302,12 @@ serif;
         align-items: center;
         flex: 1;
         justify-content: space-around;
+        position: relative;
 
         &.title {
           justify-content: flex-start;
           position: relative;
-          height: 100px;
+          height: 150px;
           border-radius: 5px;
         }
 
@@ -370,7 +371,7 @@ serif;
     width: 35%;
     padding: 2%;
     display: none;
-    
+
     label {
       display: block;
       width: 100%;
@@ -538,9 +539,14 @@ serif;
           justify-content: space-around;
 
 
-          &.prodTotal,
-          &.removeWrap {
+          &.prodTotal {
             display: none;
+          }
+
+          &.removeWrap {
+            position: absolute;
+            top: 5px;
+            right: 0;
           }
         }
       }
