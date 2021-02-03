@@ -74,7 +74,7 @@ serif;
     margin: 0 auto;
     margin-bottom: 1em;
     background-color: $level1;
-    
+    position: relative;
     padding: 20px;
     border-radius: 5px;
   }
@@ -174,6 +174,7 @@ serif;
   // CART Items
 
   .cart {
+    z-index: 2;
     padding: 1em 0;
 
     .items {
@@ -450,7 +451,7 @@ serif;
 
     .promoCode & {
       font-size: .85em;
-      paddding: .5em 2em;
+      padding: .5em 2em;
     }
   }
 

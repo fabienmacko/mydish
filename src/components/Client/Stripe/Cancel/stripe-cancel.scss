@@ -1,0 +1,49 @@
+@import "../../../../style/colors/colors.scss";
+
+#stripe-cancel {
+  min-height: 100vh;
+  background-color: $level4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    margin: 2rem 0;
+    color: $font-white;
+    text-align: center;
+  }
+
+  .continue {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -.015em;
+    font-size: 1em;
+    padding: 1em 3em;
+    color: white;
+    background: rgb(130, 202, 156);
+    font-weight: bold;
+    border-radius: 50px;
+    float: right;
+    text-align: right;
+    transition: all 0.25s linear;
+
+
+    &:after {
+      content: "\276f";
+      padding: .5em;
+      position: relative;
+      right: 0;
+      transition: all .15s linear;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $red;
+
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+}

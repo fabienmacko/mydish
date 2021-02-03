@@ -1,0 +1,236 @@
+@import "../../../../../style/colors/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400);
+
+#stripe-success {
+  min-height: 100vh;
+  background-color: $level4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2 {
+    margin: 2rem 0;
+    color: $font-white;
+  }
+
+  .continue {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: -.015em;
+    font-size: 1em;
+    padding: 1em 3em;
+    color: white;
+    background: rgb(130, 202, 156);
+    font-weight: bold;
+    border-radius: 50px;
+    float: right;
+    text-align: right;
+    transition: all 0.25s linear;
+    margin-top: 30px;
+
+
+    &:after {
+      content: "\276f";
+      padding: .5em;
+      position: relative;
+      right: 0;
+      transition: all .15s linear;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: $red;
+
+      &:after {
+        right: -10px;
+      }
+    }
+  }
+
+  // Countdown timer
+
+  .timer-group {
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    width: 200px;
+  }
+
+  .timer {
+    border-radius: 50%;
+    height: 50px;
+    overflow: hidden;
+    position: absolute;
+    width: 50px;
+  }
+
+  .timer:after {
+    background: #111 url(https://codepen.io/images/classy_fabric.png);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 40px;
+    left: 5px;
+    position: absolute;
+    width: 40px;
+    top: 5px;
+  }
+
+  .timer .hand {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+  }
+
+  .timer .hand span {
+    border: 25px solid $red;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(405deg);
+    width: 0;
+  }
+
+  .timer .hand:first-child {
+    transform: rotate(180deg);
+  }
+
+  .timer .hand span {
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+  }
+
+  .timer .hand:first-child span {
+    animation-name: spin1;
+  }
+
+  .timer .hand:last-child span {
+    animation-name: spin2; 
+  }
+
+  .timer.hour {
+    background: rgba(0, 0, 0, .3);
+    height: 200px;
+    left: 0;
+    width: 200px;
+    top: 0;
+  }
+
+  .timer.hour .hand span {
+    animation-duration: 0s;
+    border-top-color: $red;
+    border-right-color: $red;
+    border-width: 200px;
+  }
+
+  .timer.hour:after {
+    height: 180px;
+    left: 10px;
+    width: 180px;
+    top: 10px;
+  }
+
+  .timer.minute {
+    background: rgba(0, 0, 0, .2);
+    height: 175px;
+    left: 12.5px;
+    width: 175px;
+    top: 12.5px;
+  }
+
+  .timer.minute .hand span {
+    border-top-color: $red;
+    border-right-color: $red;
+    border-width: 89.5px;
+  }
+
+  .timer.minute:after {
+    height: 155px;
+    left: 10px;
+    width: 155px;
+    top: 10px;
+  }
+
+  .timer.second {
+    background: rgba(0, 0, 0, .2);
+    height: 150px;
+    left: 25px;
+    width: 150px;
+    top: 25px;
+  }
+
+  .timer.second .hand span {
+    animation-duration: 1s;
+    border-top-color: rgba(255, 255, 255, .15);
+    border-right-color: rgba(255, 255, 255, .15);
+    border-width: 75px;
+  }
+
+  .timer.second:after {
+    height: 147px;
+    left: 1px;
+    width: 147px;
+    top: 1px;
+  }
+
+  .face {
+    background: rgba(0, 0, 0, .1);
+    border-radius: 50%;
+    height: 148px;
+    left: 26px;
+    padding: 165px 40px 0;
+    position: absolute;
+    width: 148px;
+    text-align: center;
+    top: 26px;
+  }
+
+  .face h2 {
+    font-weight: 300; 
+  }
+
+  .face p {
+    border-radius: 10px;
+    font-size: 35px;
+    font-weight: 400;
+    position: absolute;
+    top: 15px;
+    width: 130px;
+    color: $font-white;
+    left: 5px;
+  }
+
+  @keyframes spin1 {
+    0% {
+      transform: rotate(225deg);
+    }
+    50% {
+      transform: rotate(225deg);
+    }
+    100% {
+      transform: rotate(405deg);
+    }
+  }
+
+  @keyframes spin2 {
+    0% {
+      transform: rotate(225deg);
+    }
+    50% {
+      transform: rotate(405deg);
+    }
+    100% {
+      transform: rotate(405deg);
+    }
+  }
+// /Countdown Timer
+}
