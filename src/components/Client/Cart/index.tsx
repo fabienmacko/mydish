@@ -23,9 +23,9 @@ const Cart = () => {
     document.title = "Cart | MyDish";
   });
 
-
+  
   const localStorageCart = getUniqueProducts();
-
+  
   const [productsToDisplay, setProductsToDisplay] = useState(localStorageCart);
 
   const [commandTotalPrice, setCommandTotalPrice] = useState(getProducts()?.reduce((acc: number, dish: Dish) => acc + dish.price, 0));
@@ -93,14 +93,17 @@ const Cart = () => {
           </ul>
         </div>
 
-        <div className="promoCode"><label htmlFor="promo">Have A Promo Code?</label><input type="text" name="promo" placeholder="Enter Code" />
-          <a href='#' className="btn"></a></div>
+        { /* <div className="promoCode"><label htmlFor="promo">Have A Promo Code?</label><input type="text" name="promo" placeholder="Enter Code" /><a href='#' className="btn"></a></div> */}
+
+
+          
 
         <div className="subtotal cf">
           <ul>
             <li className="totalRow final"><span className="label">Total</span><span className="value">{formatPrice(commandTotalPrice)}€</span></li>
 
             {productsToDisplay!.length > 0 && <li className="totalRow"><button className="btn continue" onClick={handleCheckout}>Checkout</button></li>}
+
 
           </ul>
         </div>

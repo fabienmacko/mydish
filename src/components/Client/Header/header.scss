@@ -32,7 +32,9 @@
     top: 1px;
     font-size: 1.3rem;
     font-weight: bold;
-    right: 13px;
+    padding-left: 7px;
+    width: 100%;
+    margin: 0 auto;
     color: white;
     display: flex;
     align-items: center;
@@ -72,9 +74,7 @@
     }
 
     .itemsCounter {
-      position: absolute;
       top: 5px;
-      left: 20px;
     }
   }
 }
